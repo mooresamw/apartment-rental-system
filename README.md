@@ -11,5 +11,5 @@
     c) pip install firebase-admin<br>
 4. After all dependencies are installed, in the client folder run the command 'npm run dev'<br>
 5. In the server folder, run the command 'python3 server.py'<br>
-6. In your web-browser, navigate to http:://localhost:3000/tenant, http://localhost:3000/maintenanceteam, or http://localhost:3000/manager to view the pages.
+6. In your web-browser, navigate to http://localhost:3000/tenant, http://localhost:3000/maintenanceteam, or http://localhost:3000/manager to view the pages.
 </p>
