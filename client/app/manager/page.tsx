@@ -130,6 +130,20 @@ export default function ManagerDashboard() {
     })
   }
 
+  // Method to set the id of the tenant being edited
+  const setEditingId = (id: string) => {
+    console.log("Editing Tenant ID:", id)
+    setEditingTenant({
+        tenant_id: id,
+        name: "",
+        phone: "",
+        email: "",
+        checkin: "",
+        checkout: "",
+        apartmentnumber: ""
+    })
+  }
+  
   // Method to handle changing a tenant's apartment number
   const handleMoveTenant = async (id: string) => {
     // send post request to backend to update the db
@@ -142,7 +156,7 @@ export default function ManagerDashboard() {
         //mode: 'no-cors',
         body: JSON.stringify({apartmentnumber: editingTenant.apartmentnumber}),
       });
-
+      console.log("moved tenant:", id)
       const result = await res.json();
       console.log(result)
       setTenants(tenants.map(t =>
@@ -309,7 +323,7 @@ export default function ManagerDashboard() {
                                 {/*dialog box to edit apartment number*/}
                                 <Dialog open={isEditingTenant} onOpenChange={setIsEditingTenant}>
                                   <DialogTrigger asChild>
-                                    <Button variant="outline" size="sm">
+                                    <Button variant="outline" size="sm" onClick={() => setEditingId(tenant.tenant_id)}>
                                       <Edit className="h-4 w-4" />
                                     </Button>
                                   </DialogTrigger>
@@ -330,7 +344,7 @@ export default function ManagerDashboard() {
                                       </div>
                                     </div>
                                     <DialogFooter>
-                                      <Button onClick={() => handleMoveTenant(tenant.tenant_id)}>Move Tenant</Button>
+                                      <Button onClick={() => handleMoveTenant(editingTenant.tenant_id)}>Move Tenant</Button>
                                     </DialogFooter>
                                   </DialogContent>
                                 </Dialog>
