@@ -1,4 +1,4 @@
-# apartment-rental-system
+# Project 2 for CMPSC 487W: apartment-rental-system
 <h2>How to run the web-app:</h2>
 <p>
 1. Download or clone the repository.<br>
